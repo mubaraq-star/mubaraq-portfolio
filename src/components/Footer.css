@@ -1,0 +1,29 @@
+.footer {
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg-primary);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.footer-logo {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--teal);
+}
+.footer-copy {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.footer-built {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+}
+@media (max-width: 520px) {
+  .footer-inner { justify-content: center; text-align: center; }
+}
