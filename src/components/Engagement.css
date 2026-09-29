@@ -1,0 +1,15 @@
+.engagement { background: var(--bg-primary); }
+.engagement-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 42px; }
+.engagement-card { padding: 24px; border: 1px solid var(--border); background: var(--bg-card); border-radius: var(--radius); }
+.engagement-icon { color: var(--teal); margin-bottom: 18px; }
+.engagement-step { display: block; margin-bottom: 6px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.engagement-card h3 { color: var(--text-primary); font-size: 16px; margin-bottom: 9px; }
+.engagement-card p { color: var(--text-secondary); font-size: 13px; line-height: 1.7; }
+.engagement-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 32px; }
+.availability { display: flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 13px; }
+.engagement-cta { text-decoration: none; }
+@media (max-width: 1000px) { .engagement-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) {
+  .engagement-grid { grid-template-columns: 1fr; }
+  .engagement-cta { width: 100%; justify-content: center; }
+}

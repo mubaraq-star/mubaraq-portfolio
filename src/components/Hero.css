@@ -190,11 +190,25 @@
 }
 
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-stats-col { flex-direction: row; flex-wrap: wrap; }
-  .stat-card { min-width: 140px; flex: 1; }
+  .hero { min-height: auto; padding: 120px 0 72px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-stats-col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .stat-card { min-width: 0; padding: 18px 20px; }
+  .stat-card:hover { transform: none; }
+  .hero-scroll-hint { display: none; }
+}
+@media (max-width: 640px) {
+  .hero-stats-col { grid-template-columns: repeat(2, 1fr); }
+  .stat-value { font-size: 28px; }
+  .hero-glow { width: 420px; height: 420px; right: -40%; }
 }
 @media (max-width: 480px) {
-  .hero-name { font-size: 48px; }
-  .hero-scroll-hint { display: none; }
+  .hero { padding: 100px 0 56px; }
+  .hero-name { font-size: clamp(34px, 10vw, 44px); }
+  .hero-title { font-size: 16px; }
+  .hero-tagline { font-size: 15px; margin-bottom: 28px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions button { width: 100%; justify-content: center; }
+  .stat-card { padding: 16px; }
+  .stat-label { font-size: 12px; }
 }

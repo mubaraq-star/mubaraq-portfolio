@@ -179,7 +179,9 @@
 }
 
 @media (max-width: 600px) {
-  .about-left { flex-direction: column; align-items: center; }
+  .about-left { flex-direction: column; align-items: center; gap: 44px; }
+  .about-text { width: 100%; }
+  .about-role-badge { display: flex; border-radius: var(--radius); line-height: 1.5; }
   .profile-photo-wrap { width: 200px; }
   .profile-photo { width: 200px; height: 230px; }
 }

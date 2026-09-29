@@ -30,15 +30,15 @@ export default function Contact() {
         <div className="contact-grid">
           {/* Left */}
           <div className="contact-left">
-            <div className="section-eyebrow"><span>Let's Build Something</span></div>
+            <div className="section-eyebrow"><span>Start with the problem</span></div>
             <h2 className="section-title">
-              Open to new<br />
-              <span className="teal">collaborations.</span>
+              Tell me what is<br />
+              <span className="teal">blocking your product.</span>
             </h2>
             <p className="contact-body">
-              Whether you're looking for a backend engineer, a technical co-founder,
-              or a CTO advisor, I'm always open to meaningful conversations about
-              the problems you're solving.
+              Share the product stage, the backend challenge, and what a successful outcome
+              looks like. I will reply with the clearest next step, whether that is a focused
+              implementation, an architecture review, or ongoing technical leadership.
             </p>
 
             <div className="contact-socials">
@@ -71,9 +71,9 @@ export default function Contact() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="subject">Subject</label>
+              <label htmlFor="subject">What do you need help with?</label>
               <input
-                id="subject" name="subject" type="text" placeholder="Technical Co-Founder Inquiry"
+                id="subject" name="subject" type="text" placeholder="e.g. Scale our API before launch"
                 value={form.subject} onChange={handleChange}
               />
             </div>
@@ -82,7 +82,7 @@ export default function Contact() {
               <label htmlFor="message">Message</label>
               <textarea
                 id="message" name="message" rows={5}
-                placeholder="Hi Mubaraq, I'm starting a fintech startup and looking for a technical co-founder…"
+                placeholder="Tell me about the product, current stack, timeline, and the outcome you need…"
                 value={form.message} onChange={handleChange} required
               />
             </div>
@@ -91,7 +91,7 @@ export default function Contact() {
               {sent ? (
                 <><CheckCircle size={16} /> Message Opened</>
               ) : (
-                <><Send size={16} /> Send Message</>
+                <><Send size={16} /> Request a Discovery Call</>
               )}
             </button>
           </form>

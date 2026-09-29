@@ -6,22 +6,22 @@ const pillars = [
   {
     icon: <Terminal size={20} />,
     title: 'Backend Architecture',
-    desc: 'Building high-throughput distributed systems with Node.js, NestJS, and cloud-native patterns that scale from MVP to millions of users.',
+    desc: 'Building dependable backend systems with Node.js, NestJS, and cloud-native patterns that can grow with product demand.',
   },
   {
     icon: <Layers size={20} />,
     title: 'System Design',
-    desc: 'Event-driven microservices, CQRS, API gateways, and database optimisation — designing for resilience and observability from day one.',
+    desc: 'Event-driven services, API boundaries, and database optimisation designed for resilience and observability from day one.',
   },
   {
     icon: <Users size={20} />,
     title: 'Engineering Leadership',
-    desc: 'Growing and mentoring engineering teams, setting technical direction, and aligning cross-functional stakeholders around product velocity.',
+    desc: 'Setting technical direction, reviewing code, and aligning teams around clear delivery priorities.',
   },
   {
     icon: <Zap size={20} />,
     title: 'Startup Execution',
-    desc: 'Co-founding Delayfree and taking it from idea to production — owning the full stack from infrastructure decisions to user-facing APIs.',
+    desc: 'Co-founding Delayfree and taking it from idea to production with ownership across infrastructure and APIs.',
   },
 ];
 
@@ -53,21 +53,20 @@ export default function About() {
             </div>
 
             <div className="about-text">
-              <div className="section-eyebrow"><span>About Me</span></div>
+              <div className="section-eyebrow"><span>Why clients hire me</span></div>
               <h2 className="section-title">
-                Engineer at heart,<br />
-                <span className="teal">Leader by choice.</span>
+                Senior execution.<br />
+                <span className="teal">Clear ownership. No drama.</span>
               </h2>
               <p className="about-body">
-                I'm a backend engineer with 5+ years building high-throughput distributed
-                systems, microservices, and cloud-native architectures. I specialise in
-                Node.js, NestJS, Python, and cloud-native deployments.
+                I take ownership from requirements through architecture, implementation,
+                deployment, and support. The goal is straightforward: reliable delivery,
+                sensible technical decisions, and communication you can plan around.
               </p>
               <p className="about-body">
-                As CTO and Co-Founder of Delayfree, I lead a growing engineering team,
-                shipping backend infrastructure and real-time logistics systems that directly
-                impact business outcomes. I also serve as a Software Engineer at Stallion
-                Check Ltd, building UK compliance intelligence tools.
+                I have built a live logistics platform serving 10K+ users and currently work
+                on compliance intelligence software. That experience helps me balance speed
+                with the reliability, security, and maintainability a real business needs.
               </p>
 
               <div className="about-badges">
@@ -76,7 +75,7 @@ export default function About() {
 
               <div className="about-role-badge">
                 <span className="role-dot" />
-                CTO &amp; Co-Founder · Delayfree
+                Available for contract backend engineering, architecture, and technical leadership
               </div>
             </div>
           </div>

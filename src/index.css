@@ -34,6 +34,11 @@ body {
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: var(--teal-dim); border-radius: 3px; }
 
+/* keep anchored sections clear of the fixed navbar */
+section[id] { scroll-margin-top: 72px; }
+
+img { max-width: 100%; }
+
 /* ── Utilities ── */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 .mono { font-family: 'JetBrains Mono', monospace; }
@@ -100,6 +105,22 @@ body {
 
 .animate-fade-up { animation: fadeUp 0.7s ease forwards; }
 .animate-float   { animation: float 4s ease-in-out infinite; }
+
+/* ── Global responsive rhythm ── */
+@media (max-width: 768px) {
+  .section { padding: 72px 0; }
+  .section-title { margin-bottom: 18px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 18px; }
+  .section { padding: 56px 0; }
+  .section-title { font-size: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
 
 /* ── Noise texture overlay ── */
 body::before {

@@ -78,10 +78,10 @@ export default function TechStack() {
     <section className="techstack section" id="stack">
       <div className="container">
         <div className="section-eyebrow"><span>Tech Stack</span></div>
-        <h2 className="section-title">Tools I Build With</h2>
+        <h2 className="section-title">Technical expertise that serves the outcome</h2>
         <p className="stack-sub">
-          Production-grade technologies that power resilient, scalable backends
-          and cloud infrastructure.
+          Node.js, NestJS, TypeScript, PostgreSQL, Redis, AWS, Docker, microservices,
+          event-driven architecture, system design, and real-time systems.
         </p>
 
         <div className="stack-grid">

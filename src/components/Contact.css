@@ -114,9 +114,16 @@
 }
 .form-submit.sent { background: #1a9e6e; }
 
+.social-label { min-width: 0; overflow-wrap: anywhere; }
+
 @media (max-width: 900px) {
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-glow { width: 400px; height: 400px; }
 }
 @media (max-width: 520px) {
   .form-row { grid-template-columns: 1fr; }
+  /* 16px stops iOS Safari zooming in when an input is focused */
+  .form-group input,
+  .form-group textarea { font-size: 16px; }
+  .contact-body { margin-bottom: 28px; }
 }

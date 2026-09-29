@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
-const links = ['About', 'Stack', 'Projects', 'Career', 'Contact'];
+const links = ['Services', 'Case Studies', 'Process', 'Contact'];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,7 +17,8 @@ export default function Navbar() {
   const handleNav = (e, id) => {
     e.preventDefault();
     setOpen(false);
-    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
+    const anchors = { 'Case Studies': 'projects', Process: 'engagement' };
+    document.getElementById(anchors[id] || id.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -36,7 +37,7 @@ export default function Navbar() {
         </ul>
 
         <a href="#contact" className="nav-cta" onClick={e => handleNav(e, 'Contact')}>
-          Download Resume
+          Start a Conversation
         </a>
 
         <button className="menu-btn" onClick={() => setOpen(o => !o)} aria-label="Toggle menu">
@@ -49,7 +50,7 @@ export default function Navbar() {
           {links.map(l => (
             <a key={l} href={`#${l.toLowerCase()}`} onClick={e => handleNav(e, l)}>{l}</a>
           ))}
-          <a href="#contact" className="mobile-cta" onClick={e => handleNav(e, 'Contact')}>Download Resume</a>
+          <a href="#contact" className="mobile-cta" onClick={e => handleNav(e, 'Contact')}>Start a Conversation</a>
         </div>
       )}
     </nav>

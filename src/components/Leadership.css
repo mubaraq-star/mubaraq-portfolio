@@ -82,7 +82,7 @@
 @media (max-width: 900px) {
   .leadership-inner { grid-template-columns: 1fr; gap: 48px; }
 }
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .leadership-pillars { grid-template-columns: 1fr; }
-  .leadership-numbers { grid-template-columns: repeat(2, 1fr); }
+  .ln-val { font-size: 24px; }
 }

@@ -65,3 +65,10 @@
   transition: color 0.2s;
 }
 .stack-item:hover .stack-name { color: var(--text-primary); }
+
+@media (max-width: 480px) {
+  .stack-sub { margin-bottom: 36px; }
+  .stack-grid { grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 10px; }
+  .stack-item { padding: 16px 8px; }
+  .stack-icon { width: 40px; height: 40px; }
+}

@@ -37,16 +37,16 @@ export default function Leadership() {
       <div className="container">
         <div className="leadership-inner">
           <div className="leadership-left">
-            <div className="section-eyebrow"><span>Leadership</span></div>
+            <div className="section-eyebrow"><span>Why work with me</span></div>
             <h2 className="section-title">
-              Building Delayfree<br />
-              <span className="teal">from the ground up.</span>
+              A technical partner<br />
+              <span className="teal">who understands the business.</span>
             </h2>
             <p className="leadership-body">
-              As CTO and Co-Founder of Delayfree, I own the full spectrum of engineering
-              leadership — from architecting the initial backend services to managing a
-              growing distributed team. Every system, every hire, every deployment reflects
-              a deliberate choice to build for reliability and speed.
+              You do not need another person who only writes tickets or only draws boxes.
+              You need someone who can make the trade-offs, write the critical code, explain
+              the decision, and help your team ship. I combine CTO-level thinking with hands-on
+              backend delivery, so architecture supports revenue, reliability, and speed.
             </p>
 
             <div className="leadership-numbers">

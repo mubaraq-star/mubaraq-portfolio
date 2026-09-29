@@ -5,8 +5,9 @@ import './Projects.css';
 const projects = [
   {
     title: 'Delayfree — Real-Time Logistics Platform',
-    description:
-      'End-to-end logistics coordination platform built from the ground up as CTO. Real-time tracking, automated dispatch, and smart routing for last-mile delivery. Partner web app live — customer and courier on mobile.',
+    problem: 'Dispatch teams needed live shipment visibility and faster driver assignment across a growing last-mile operation.',
+    solution: 'Architected the backend from zero with real-time tracking, automated dispatch, smart routing, and integrations for maps, notifications, and payments.',
+    impact: '10K+ users, 99.9% uptime, sub-120ms API latency, and 3x faster dispatch.',
     tags: ['NestJS', 'PostgreSQL', 'Redis', 'WebSockets', 'AWS'],
     metrics: [
       { value: '10K+', label: 'Active Users' },
@@ -17,12 +18,13 @@ const projects = [
     liveUrl: 'https://delayfree.com/',
     privateRepo: true,
     featured: true,
-    badge: 'Founder Project',
+    badge: 'Live production system',
   },
   {
     title: 'Event-Driven Notification Engine',
-    description:
-      'Async notification service handling email, SMS, and push across multiple providers with retry logic, deduplication, and delivery receipts at scale.',
+    problem: 'Product teams needed dependable multi-channel notifications without duplicate sends or silent delivery failures.',
+    solution: 'Built an event-driven service with queues, provider fallbacks, retries, deduplication, and delivery receipts.',
+    impact: 'Designed for 500K+ events per day with a 99.5% delivery rate.',
     tags: ['Node.js', 'BullMQ', 'Redis', 'TypeScript'],
     metrics: [
       { value: '500K+', label: 'Events/day' },
@@ -32,8 +34,9 @@ const projects = [
   },
   {
     title: 'Multi-Tenant Auth & RBAC Service',
-    description:
-      'Identity and access management microservice with JWT, refresh-token rotation, fine-grained RBAC, and OAuth 2.0 for SaaS multi-tenancy.',
+    problem: 'A multi-tenant SaaS product needed secure identity, roles, and delegated access without coupling auth to every product service.',
+    solution: 'Designed an auth service with refresh-token rotation, fine-grained RBAC, OAuth 2.0, and tenant-aware boundaries.',
+    impact: 'Supported 2M+ auth tokens with 8ms P99 latency.',
     tags: ['NestJS', 'PostgreSQL', 'JWT', 'OAuth2'],
     metrics: [
       { value: '2M+', label: 'Auth Tokens' },
@@ -43,8 +46,9 @@ const projects = [
   },
   {
     title: 'ETL Data Pipeline',
-    description:
-      'High-throughput ETL pipeline for ingesting and transforming structured and semi-structured data from multiple sources into a clean analytics layer.',
+    problem: 'Analytics workflows were slowed by inconsistent data from multiple structured and semi-structured sources.',
+    solution: 'Created a containerised ETL pipeline to ingest, validate, transform, and load data into a dependable analytics layer.',
+    impact: 'Processed 2TB+ of data with zero reported data-loss incidents.',
     tags: ['Node.js', 'PostgreSQL', 'Docker', 'Kubernetes'],
     metrics: [
       { value: '2TB+', label: 'Data Processed' },
@@ -59,9 +63,9 @@ export default function Projects() {
     <section className="projects section" id="projects">
       <div className="container">
         <div className="section-eyebrow"><span>Featured Work</span></div>
-        <h2 className="section-title">Systems Designed to Scale</h2>
+        <h2 className="section-title">Proof that the backend can carry the product</h2>
         <p className="projects-sub">
-          From architecture through deployment — backend systems with measurable impact.
+          Case studies from logistics, SaaS infrastructure, notifications, and data platforms.
         </p>
 
         <div className="projects-grid">
@@ -74,7 +78,11 @@ export default function Projects() {
               </div>
 
               <h3 className="project-title">{p.title}</h3>
-              <p className="project-desc">{p.description}</p>
+              <div className="case-study-copy">
+                <p><strong>Problem</strong>{p.problem}</p>
+                <p><strong>Solution</strong>{p.solution}</p>
+                <p><strong>Business impact</strong>{p.impact}</p>
+              </div>
 
               <div className="project-metrics">
                 {p.metrics.map(m => (

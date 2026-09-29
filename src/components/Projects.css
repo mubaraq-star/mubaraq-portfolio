@@ -41,8 +41,7 @@
 }
 
 .project-badge {
-  position: absolute;
-  top: 20px; right: 20px;
+  align-self: flex-start;
   padding: 4px 12px;
   background: var(--teal);
   color: var(--bg-primary);
@@ -67,6 +66,25 @@
   color: var(--text-secondary);
   line-height: 1.7;
   flex: 1;
+}
+.case-study-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.case-study-copy p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.case-study-copy strong {
+  display: block;
+  color: var(--teal);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
 }
 
 .project-metrics {
@@ -119,4 +137,12 @@
 
 @media (max-width: 768px) {
   .projects-grid { grid-template-columns: 1fr; }
+  .projects-sub { margin-bottom: 36px; }
+  .project-card:hover { transform: none; }
+}
+@media (max-width: 480px) {
+  .project-card { padding: 20px; gap: 14px; }
+  .project-title { font-size: 17px; }
+  .project-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .metric-val { font-size: 20px; }
 }
