@@ -3,6 +3,7 @@
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 20px 0;
+  border-bottom: 1px solid transparent; /* so the scrolled border fades in instead of flashing white */
   transition: all 0.3s ease;
 }
 .navbar.scrolled {

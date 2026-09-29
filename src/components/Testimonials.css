@@ -1,7 +1,26 @@
 .testimonials { background: var(--bg-secondary); border-block: 1px solid var(--border); }
 .testimonial-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
 .testimonial-intro { color: var(--text-secondary); line-height: 1.8; max-width: 520px; }
-.testimonial-placeholder { display: flex; flex-direction: column; gap: 10px; padding: 28px; border: 1px dashed var(--border-teal); border-radius: var(--radius); color: var(--text-secondary); line-height: 1.6; font-size: 14px; }
-.testimonial-placeholder svg { color: var(--teal); }
-.testimonial-placeholder strong { color: var(--text-primary); }
-@media (max-width: 700px) { .testimonial-layout { grid-template-columns: 1fr; gap: 28px; } }
+
+.reference-card { display: flex; flex-direction: column; gap: 18px; padding: 28px; border: 1px solid var(--border-teal); border-radius: var(--radius); background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0,212,170,0.05) 100%); }
+.reference-head { display: flex; align-items: center; gap: 10px; color: var(--teal); }
+.reference-head strong { color: var(--text-primary); font-size: 16px; }
+.reference-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.reference-list li { position: relative; padding-left: 20px; color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
+.reference-list li::before { content: ''; position: absolute; left: 0; top: 9px; width: 8px; height: 8px; border-radius: 50%; background: var(--teal); }
+.reference-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px; }
+.reference-actions .btn-primary, .reference-actions .btn-secondary { padding: 11px 20px; font-size: 13px; text-decoration: none; }
+
+.quote-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 12px; }
+.quote-card { display: flex; flex-direction: column; gap: 16px; padding: 26px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); }
+.quote-icon { color: var(--teal); }
+.quote-card blockquote { color: var(--text-primary); font-size: 15px; line-height: 1.7; flex: 1; }
+.quote-card figcaption { display: flex; flex-direction: column; gap: 2px; padding-top: 14px; border-top: 1px solid var(--border); }
+.quote-card figcaption strong { color: var(--text-primary); font-size: 14px; }
+.quote-card figcaption span { color: var(--text-secondary); font-size: 12px; }
+
+@media (max-width: 900px) { .testimonial-layout { grid-template-columns: 1fr; gap: 28px; } }
+@media (max-width: 480px) {
+  .reference-card { padding: 22px; }
+  .reference-actions .btn-primary, .reference-actions .btn-secondary { flex: 1 1 100%; justify-content: center; }
+}

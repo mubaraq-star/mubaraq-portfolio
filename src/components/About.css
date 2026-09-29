@@ -6,6 +6,7 @@
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 24px;
+  text-wrap: balance;
 }
 
 /* ── Grid: left col (photo + text) | right col (pillars) ── */

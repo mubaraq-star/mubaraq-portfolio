@@ -30,6 +30,7 @@
 }
 
 .hero-inner {
+  width: 100%; /* .hero is flex, so without this the container shrinks and sits off the page's left edge */
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 60px;
@@ -42,11 +43,12 @@
 .hero-content { animation: fadeUp 0.8s ease forwards; }
 
 .hero-name {
-  font-size: clamp(52px, 7vw, 88px);
+  font-size: clamp(44px, 4.4vw, 64px);
   font-weight: 900;
-  line-height: 1.0;
+  line-height: 1.05;
   letter-spacing: -0.03em;
-  margin: 12px 0 8px;
+  margin: 12px 0 18px;
+  text-wrap: balance;
 }
 .hero-first { color: var(--text-primary); }
 .hero-last  { color: var(--teal); }
