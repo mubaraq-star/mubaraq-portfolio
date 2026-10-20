@@ -7,18 +7,28 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { toArticle, sortArticles } from '../src/insights/parse.js';
 import { categories } from '../src/insights/categories.js';
-import { SITE_NAME, INSIGHTS_TAGLINE } from '../src/site.js';
+import { SITE_NAME, INSIGHTS_TAGLINE, PERSON_SCHEMA } from '../src/site.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
-const template = readFileSync(join(dist, 'index.html'), 'utf8');
+const built = readFileSync(join(dist, 'index.html'), 'utf8');
 
 // The site URL was already substituted into the canonical tag by Vite (VITE_SITE_URL).
-const canonical = template.match(/<link rel="canonical" href="([^"]*)"/)?.[1] ?? '';
+const canonical = built.match(/<link rel="canonical" href="([^"]*)"/)?.[1] ?? '';
 const base = /^https?:\/\//.test(canonical) ? canonical.replace(/\/$/, '') : '';
 if (!base) console.warn('[prerender] VITE_SITE_URL is not set: using relative URLs and skipping sitemap.xml');
 
 const escape = value => String(value).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const jsonLd = data => `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+
+// Person structured data comes from src/site.js so the page content and schema never drift apart.
+const person = { ...PERSON_SCHEMA, url: `${base}/`, image: `${base}/profile.jpeg` };
+const template = built.replace(
+  /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
+  jsonLd({ '@context': 'https://schema.org', ...person }),
+);
+writeFileSync(join(dist, 'index.html'), template);
+const author = { '@type': 'Person', name: person.name, url: person.url, jobTitle: person.jobTitle };
 
 const setAttr = (html, selector, value) =>
   html.replace(new RegExp(`(<meta ${selector} content=")[^"]*(")`), `$1${escape(value)}$2`);
@@ -57,6 +67,18 @@ write('/insights', render({
   path: '/insights',
   title: `Insights | ${SITE_NAME}`,
   description: INSIGHTS_TAGLINE,
+  extraHead: `    ${jsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: `Insights by ${SITE_NAME}`,
+    description: INSIGHTS_TAGLINE,
+    url: `${base}/insights`,
+    author,
+    about: categories.map(c => ({ '@type': 'Thing', name: c.name })),
+    blogPost: articles.filter(a => a.published).map(a => ({
+      '@type': 'BlogPosting', headline: a.title, url: `${base}/insights/${a.slug}`, datePublished: a.date,
+    })),
+  })}`,
 }));
 
 // ── /insights/category/:slug ──
@@ -65,6 +87,15 @@ for (const c of categories) {
     path: `/insights/category/${c.slug}`,
     title: `${c.name} — Insights | ${SITE_NAME}`,
     description: c.description,
+    extraHead: `    ${jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `${c.name} — Insights`,
+      description: c.description,
+      url: `${base}/insights/category/${c.slug}`,
+      author,
+      isPartOf: { '@type': 'Blog', url: `${base}/insights` },
+    })}`,
   }));
 }
 
@@ -77,7 +108,7 @@ for (const a of articles) {
       `<meta property="article:published_time" content="${escape(a.date)}" />`,
       `<meta property="article:section" content="${escape(a.category.name)}" />`,
       ...a.tags.map(t => `<meta property="article:tag" content="${escape(t)}" />`),
-      `<script type="application/ld+json">${JSON.stringify({
+      jsonLd({
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         headline: a.title,
@@ -87,8 +118,8 @@ for (const a of articles) {
         keywords: a.tags.join(', '),
         url: `${base}${path}`,
         image: `${base}/og-image.png`,
-        author: { '@type': 'Person', name: SITE_NAME, url: `${base}/` },
-      }).replace(/</g, '\\u003c')}</script>`,
+        author,
+      }),
     );
   } else {
     meta.push('<meta name="robots" content="noindex" />'); // planned articles have no body yet

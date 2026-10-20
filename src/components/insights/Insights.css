@@ -320,9 +320,71 @@ main .insights-newsletter { padding-bottom: 96px; }
 .author-box img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--border-teal); flex-shrink: 0; }
 .author-box strong { color: var(--text-primary); }
 .author-box p { margin: 4px 0 10px; font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
+.author-box p + p { margin-top: -2px; }
 .article-hire { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--teal); text-decoration: none; }
 
 .article-page .article-related { margin-bottom: 72px; }
+
+/* ── About the author + Engineering Background (Insights landing) ── */
+.insights-page .author-section {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 18px;
+  margin-bottom: 56px;
+}
+.author-about,
+.engineering-background {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+}
+.author-about-body { display: flex; gap: 20px; align-items: flex-start; }
+.author-about-body img { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; object-position: center top; border: 2px solid var(--border-teal); flex-shrink: 0; }
+.author-about-body p { font-size: 15px; line-height: 1.75; color: var(--text-secondary); }
+.author-about-body p + p { margin-top: 12px; }
+
+.featured-in { grid-column: 1 / -1; display: flex; align-items: center; gap: 16px 28px; flex-wrap: wrap; padding: 22px 28px; border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.featured-in-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); flex-shrink: 0; }
+.featured-in-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; flex: 1; list-style: none; }
+.featured-in-list a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.featured-in-list a:hover { border-color: var(--border-teal); transform: translateY(-2px); }
+.featured-in-icon { display: flex; color: var(--text-primary); }
+.featured-in-text { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.featured-in-text strong { font-size: 14px; color: var(--text-primary); }
+.featured-in-text small { font-size: 12px; color: var(--text-dim); }
+.featured-in-arrow { color: var(--text-dim); flex-shrink: 0; }
+.featured-in-list a:hover .featured-in-arrow { color: var(--teal); }
+.engineering-background ul { display: flex; flex-direction: column; gap: 12px; list-style: none; }
+.engineering-background li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-secondary); }
+.engineering-background li svg { color: var(--teal); flex-shrink: 0; }
+
+.profile-links { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+.profile-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.profile-links a:hover { border-color: var(--border-teal); color: var(--teal); }
+.author-box .profile-links { margin-bottom: 12px; }
 
 /* ── Newsletter ── */
 .newsletter {
@@ -383,6 +445,7 @@ main.not-found { min-height: 70vh; display: flex; flex-direction: column; justif
   .topic-tile.is-primary { grid-row: auto; grid-column: 1 / -1; }
   .newsletter { grid-template-columns: auto 1fr; }
   .newsletter-form { grid-column: 1 / -1; }
+  .insights-page .author-section { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .insights-page, .article-page { padding-top: 96px; }
@@ -398,6 +461,10 @@ main.not-found { min-height: 70vh; display: flex; flex-direction: column; justif
   .prose pre { margin-left: -18px; margin-right: -18px; border-radius: 0; border-left: none; border-right: none; }
   .article-lead { font-size: 17px; }
   .author-box { flex-direction: column; }
+  .author-about-body { flex-direction: column; }
+  .author-about, .engineering-background { padding: 22px; }
+  .featured-in { padding: 20px; flex-direction: column; align-items: stretch; }
+  .featured-in-list a:hover { transform: none; }
   .newsletter { grid-template-columns: 1fr; padding: 24px; }
   .newsletter-form input[type='email'] { font-size: 16px; }
   .newsletter-form .btn-primary { flex: 1 1 100%; justify-content: center; }

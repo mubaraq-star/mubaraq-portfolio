@@ -6,6 +6,7 @@ import { categories, categoryBySlug } from '../insights/categories.js';
 import { INSIGHTS_TAGLINE, SITE_NAME } from '../site.js';
 import ArticleCard from '../components/insights/ArticleCard.jsx';
 import Newsletter from '../components/insights/Newsletter.jsx';
+import AuthorSection from '../components/insights/AuthorSection.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 import '../components/insights/Insights.css';
 
@@ -126,6 +127,9 @@ export default function InsightsPage({ categorySlug }) {
           </div>
         )}
       </section>
+
+      {/* landing page, plus the Engineering Systems category where the background is most relevant */}
+      {(!category || category.supporting) && <AuthorSection />}
 
       <div className="container insights-newsletter">
         <Newsletter />

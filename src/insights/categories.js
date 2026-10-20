@@ -1,4 +1,5 @@
-// Order matters: Software Engineering is the primary focus, Engineering & SCADA is supporting expertise.
+// Order matters: Software Engineering is the primary focus, Engineering Systems is supporting expertise
+// and must never be presented more prominently than the software categories.
 export const categories = [
   {
     slug: 'software-engineering',
@@ -22,9 +23,9 @@ export const categories = [
     description: 'Turning ideas into products with limited time, people and money, and knowing what to build first.',
   },
   {
-    slug: 'engineering-scada',
-    name: 'Engineering & SCADA',
-    description: 'Industrial systems, plant operations and reliability engineering: the discipline behind my approach to uptime.',
+    slug: 'engineering-systems',
+    name: 'Engineering Systems',
+    description: 'Thoughts on reliability engineering, SCADA systems, power generation, industrial operations, and the lessons software engineers can learn from large-scale engineering systems.',
     supporting: true,
   },
 ];

@@ -46,6 +46,7 @@ export const toArticle = (raw, slug) => {
     tags: Array.isArray(data.tags) ? data.tags : [],
     date: data.date || null,
     featured: data.featured === true,
+    order: Number(data.order) || Infinity, // optional: position among planned articles in a category
     published,
     readingTime: published ? readingTime(body) : null,
     html: published ? marked.parse(body) : '',
@@ -59,6 +60,7 @@ export const sortArticles = list => [...list].sort((a, b) =>
   || (b.date || '').localeCompare(a.date || '')
   || (b.featured - a.featured)
   || (categoryRank(a.category) - categoryRank(b.category))
+  || ((a.order - b.order) || 0) // Infinity - Infinity is NaN, so unordered articles fall through to title
   || a.title.localeCompare(b.title));
 
 export const formatDate = iso => iso

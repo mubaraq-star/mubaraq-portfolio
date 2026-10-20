@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import WhatIWriteAbout from './components/WhatIWriteAbout';
 import HomePage from './pages/HomePage';
 import InsightsPage from './pages/InsightsPage';
 import ArticlePage from './pages/ArticlePage';
@@ -27,6 +28,7 @@ export default function App() {
     <RouterProvider>
       <Navbar />
       <Routes />
+      <WhatIWriteAbout />
       <Footer />
     </RouterProvider>
   );

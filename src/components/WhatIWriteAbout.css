@@ -1,0 +1,28 @@
+.write-about { border-top: 1px solid var(--border); background: var(--bg-primary); }
+.write-about .write-about-inner { /* scoped so padding-block beats the global .container padding */
+  display: flex;
+  align-items: center;
+  gap: 12px 28px;
+  flex-wrap: wrap;
+  padding-block: 22px;
+}
+.write-about-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  flex-shrink: 0;
+}
+.write-about-list { display: flex; flex-wrap: wrap; gap: 6px 0; list-style: none; }
+.write-about-list li { display: flex; align-items: center; }
+.write-about-list li + li::before { content: '·'; margin: 0 12px; color: var(--text-dim); }
+.write-about-list a { font-size: 14px; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+.write-about-list a:hover { color: var(--text-primary); }
+
+@media (max-width: 640px) {
+  .write-about .write-about-inner { flex-direction: column; align-items: flex-start; }
+  /* dots would start wrapped lines on narrow screens, so space the items instead */
+  .write-about-list { gap: 10px 20px; }
+  .write-about-list li + li::before { content: none; }
+}

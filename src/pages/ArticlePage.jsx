@@ -2,8 +2,9 @@ import { ArrowLeft, ArrowRight, CalendarDays, Clock, PenLine } from 'lucide-reac
 import { Link, usePageMeta } from '../router.jsx';
 import { articleBySlug, publishedArticles } from '../insights/articles.js';
 import { formatDate } from '../insights/parse.js';
-import { SITE_NAME } from '../site.js';
+import { AUTHOR_BIO, SITE_NAME } from '../site.js';
 import ArticleCard from '../components/insights/ArticleCard.jsx';
+import ProfileLinks from '../components/insights/ProfileLinks.jsx';
 import Newsletter from '../components/insights/Newsletter.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 import '../components/insights/Insights.css';
@@ -60,11 +61,12 @@ export default function ArticlePage({ slug }) {
           </div>
         )}
 
-        <aside className="author-box" aria-label="About the author">
+        <aside className="author-box" id="author" aria-label="About the author">
           <img src="/profile.jpeg" alt="" width="64" height="64" />
           <div>
-            <strong>{SITE_NAME}</strong>
-            <p>Senior Backend Engineer and co-founder of Delayfree. I help SaaS teams and startups build backends that scale, and lead the engineering behind them.</p>
+            <strong>About the author</strong>
+            {AUTHOR_BIO.map(p => <p key={p}>{p}</p>)}
+            <ProfileLinks />
             <Link to="/#contact" className="article-hire">Work with me <ArrowRight size={14} /></Link>
           </div>
         </aside>
