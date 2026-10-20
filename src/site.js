@@ -14,6 +14,10 @@ export const WRITING_TOPICS = [
   { label: 'Engineering Systems', category: 'engineering-systems' },
 ];
 
+// Author cards (Insights page + article author boxes): full name with credentials underneath.
+export const AUTHOR_NAME = 'Abdulrahmon Mubaraq Olanrewaju';
+export const AUTHOR_ROLES = ['Backend Engineer', 'Co-founder at Delayfree', 'Electronics & Computer Engineering Graduate'];
+
 // One string per paragraph.
 export const AUTHOR_BIO = [
   'Mubaraq Abdulrahmon is a Backend Engineer, Co-founder at Delayfree, and Electronics & Computer Engineering graduate.',
@@ -46,6 +50,7 @@ export const PROFILE_LINKS = [
 export const PERSON_SCHEMA = {
   '@type': 'Person',
   name: SITE_NAME,
+  alternateName: AUTHOR_NAME, // full name, as used on ResearchGate
   description: AUTHOR_BIO.join(' '),
   jobTitle: ['Backend Engineer', 'CTO'],
   hasOccupation: [

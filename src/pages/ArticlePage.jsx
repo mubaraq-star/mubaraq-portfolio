@@ -2,7 +2,7 @@ import { ArrowLeft, ArrowRight, CalendarDays, Clock, PenLine } from 'lucide-reac
 import { Link, usePageMeta } from '../router.jsx';
 import { articleBySlug, publishedArticles } from '../insights/articles.js';
 import { formatDate } from '../insights/parse.js';
-import { AUTHOR_BIO, SITE_NAME } from '../site.js';
+import { AUTHOR_BIO, AUTHOR_NAME, AUTHOR_ROLES, SITE_NAME } from '../site.js';
 import ArticleCard from '../components/insights/ArticleCard.jsx';
 import ProfileLinks from '../components/insights/ProfileLinks.jsx';
 import Newsletter from '../components/insights/Newsletter.jsx';
@@ -64,7 +64,11 @@ export default function ArticlePage({ slug }) {
         <aside className="author-box" id="author" aria-label="About the author">
           <img src="/profile.jpeg" alt="" width="64" height="64" />
           <div>
-            <strong>About the author</strong>
+            <span className="author-box-label">About the author</span>
+            <strong>{AUTHOR_NAME}</strong>
+            <ul className="author-roles author-roles--box">
+              {AUTHOR_ROLES.map(r => <li key={r}>{r}</li>)}
+            </ul>
             {AUTHOR_BIO.map(p => <p key={p}>{p}</p>)}
             <ProfileLinks />
             <Link to="/#contact" className="article-hire">Work with me <ArrowRight size={14} /></Link>
